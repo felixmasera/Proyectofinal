@@ -1,0 +1,82 @@
+{% extends 'AppCoder/index.html' %}
+{% load static %}
+{% csrf_token %}
+
+{% block contenido %}
+    <div class="fondo-pantalla">
+            <div> 
+                
+                    <h1 style="text-align: center;"><strong><u>{{ game.titulo }}</u></strong></h1>
+                    <br>
+                    <br>
+                    <img style="border-radius: 30px;" src="{{ game.caratula.url }}" alt="imagen" width="600" height="350">
+                    <br>
+                    <br>
+                    <ul style="padding-left: 30px; padding-bottom: 10px;">
+                    <li>Descripcion:{{game.descripcion}}</li>
+                    <li>Genero: {{game.genero}}</li>
+                    <li>Fecha de estreno: {{game.fecha_de_estreno}}</li>
+                    <li>Tipo de juego: {{game.tipo_de_juego}}</li>
+                    </ul>
+            </div> 
+            <div class="div-boton">
+                <a class="boton" href="{% url 'ListaGame' %}">Game</a>
+            </div>
+
+            <div class="container">
+                <h4>Comentarios...</h4>
+                <br>
+                <div class="container">
+                {% if not game.comentarios.all %}
+                    No han comentado este juego
+                {% else %}
+                    {% for comentario in game.comentarios.all %}
+                    <p><strong>{{comentario.nombre}}</strong></p>
+                    <p>{{comentario.mensaje}}</p>
+                    <p><small>{{comentario.fechaComentario}}</small></p>
+                    <hr>
+                    {% endfor %}
+                {% endif %}
+                <a href="{% url 'comentario' game.pk %}">Agrega un Comentario</a>
+                </div>
+            </div>
+
+
+
+    </div>
+
+    <style>
+        .fondo-pantalla{
+            background-color: rgb(0, 0, 0);
+            background-size: cover;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .fondo-pantalla div{
+            color: white;
+            padding-top: 20px ;
+            font-family: sans-serif,Arial, Helvetica, sans-serif;
+    
+        }
+        .div-boton{
+            padding-bottom: 30px;
+        }
+        .boton{
+            font-family: sans-serif, Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            padding: 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            border: 1px green solid;
+            box-shadow: green 2px 2px 10px ;
+        }
+        .boton:hover{
+            background: rgb(88, 88, 88);
+        }
+    </style>
+{% endblock %}

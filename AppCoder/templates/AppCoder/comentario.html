@@ -1,0 +1,31 @@
+{% extends 'AppCoder/index.html' %}
+
+
+
+{% block contenido %}
+
+<div class="container-com">
+    <div class="container">
+        <h1>Agrega un Comentario</h1>
+    </div>
+    <div>
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit">Guardar</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .container-com{
+        text-align: center;
+        padding-top: 50px;
+        font-family: sans-serif, Arial, Helvetica, sans-serif;
+        background: linear-gradient(rgb(104, 174, 151), rgb(18, 195, 74));
+        min-height: 75vh;
+    }
+    form{
+        font-size: 25px;    
+    }
+</style>
+{% endblock %}

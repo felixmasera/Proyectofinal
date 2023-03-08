@@ -1,0 +1,82 @@
+{% extends "AppCoder/index.html" %}
+{% load static %}
+{% csrf_token %}
+
+{% block titulo %}
+NOSOTROS
+{% endblock %}
+
+{% block contenido %}
+    <div class="div-padre">
+            <div> 
+              <h1 style="color: white; text-align: center; font-size: 40px;">Acerca de nosotros:</h1>
+              <br>
+              <h4 style="color:white; text-align: center;">Integrantes del grupo</h4>
+              <br>
+              <div class="card">
+                <div><h2>Cristian Cerda</h2>
+                  <img  style="width: 100px; height: 100px; " src="/media/juegos/perfil3.png" alt="">
+                  <div class="parrafo">
+                    <p>Apasionado por el diseño y desarrollo de videojuegos, algun dia lograr ser el mejor diseñador y programador del mundo, Informatico de profesion.</p>
+                  </div>
+                </div>
+                <div><h2>Felix Masera</h2>
+                  <img style="width: 100px; height: 100px; border-radius: 100%;" class="perfil" src="/media/juegos/perfil2.jpg" alt="">
+                  <div class="parrafo">
+                    <p>Apasionado por los videojuegos desde chico. Aspirante a ser programador y tener una mansion en miami en frente de la playa</p>
+                  </div>
+                </div>
+                <div><h2>Oscar Beller</h2>
+                  <img style="width: 100px; height: 100px; border-radius: 100%;" class="perfil" src="/media/juegos/perfil.jpg" alt="">
+                  <div class="parrafo">
+                    <p>Soy apasionado por los videosjuegos, hace mas de 20 años que tengo contacto con el mundo tecnologico</p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+
+    <style>
+      .div-padre{
+        background-image: url(/media/juegos/gotham.png);
+        min-height: 75vh;
+        background-size: cover;
+      }
+      .card{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 100%;
+        font-size: 20px;
+        color: rgb(181, 181, 181);
+      }
+      .card div h2{
+        border: 1px solid green;
+        border-radius: 15px;
+        box-shadow: green 2px 5px 20px;
+        background: rgb(39, 39, 39);
+        padding: 10px;
+      }
+
+      .card div{
+        text-align: center;
+      }
+      .card div img{
+        margin-top: 20px;
+      }
+      .parrafo{
+        border: 1px solid green;
+        border-radius: 15px;
+        box-shadow: green 2px 5px 20px;
+        background: rgb(39, 39, 39);
+        padding: 10px;
+        height: 200px;
+      }
+      .parrafo p{
+        width: 200px;
+      }
+      
+    </style>
+        
+{% endblock %}

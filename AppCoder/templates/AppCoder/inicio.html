@@ -1,0 +1,87 @@
+{% extends "AppCoder/index.html" %}
+{% load static %}
+{% block titulo %}
+INICIO
+{% endblock %}
+
+
+{% block contenido %}
+<div class="fondo-retro">
+    <h1 class="titulo-welcome">BIENVENIDO!! {{usuario}}</h1>
+    {% if user.is_authenticated %}
+   
+    <div class="formulario-busqueda">
+        <img class="lupa" src="{% static 'AppCoder/assets/icons8-search.svg'%}" alt="">
+        <form action="{% url 'busquedagame' %}" method="GET">
+            {% csrf_token %}
+            
+            <input type="text" placeholder="Buscador de titulos" id="inputBuscador" name="tit" autocomplete="off">
+            
+        </form>
+    </div>
+    {% else%}
+    <h2 style="text-align: center; background-color: rgb(0, 100, 0); border-radius: 100px; color: rgb(243, 243, 243);">Registrate para ver todas las opciones del sitio </h2>
+    {% endif %}
+    
+    <br>
+    <br>
+    <div class="container-tuzonagame">
+    <p>TU ZONA GAMER</p>
+    </div>
+
+</div>       
+
+
+    <style>
+        .formulario-busqueda{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+        .formulario-busqueda form #inputBuscador{
+            width: 400px;
+            height: 50px;
+            font-size: 25px;
+            border-radius: 10px;
+            padding-left: 15px;
+            background: #1a1a1a;
+            border: solid 2px rgb(33, 111, 57);
+            box-shadow: 2px 2px 10px 2px black;
+            color: white;
+        }
+        .lupa{
+            width: 45px;
+            margin-right: 10px;
+        }
+        .container-tuzonagame {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        .container-tuzonagame p{
+            font-family: sans-serif, Arial, Helvetica, sans-serif;
+            font-size: 100px;
+            text-shadow: rgb(0, 0, 0) 5px 5px 30px;
+            color: rgb(29, 120, 44);
+        }
+        .titulo-welcome{
+            text-shadow: rgb(0, 0, 0) 1px 1px 2px;
+            font-family: sans-serif, Arial, Helvetica, sans-serif;
+            font-size: 40px;
+            padding-top: 30px;
+            margin-bottom: 20px;
+            color: rgb(29, 120, 44);
+            padding-left: 20px;
+        }
+        .fondo-retro{
+            background-image: url(/media/juegos/retro.jpg);
+            height: 75vh;
+            
+        }
+    </style>
+
+    
+
+{% endblock %}

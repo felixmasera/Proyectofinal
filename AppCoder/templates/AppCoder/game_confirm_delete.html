@@ -1,0 +1,19 @@
+{% extends 'AppCoder/index.html' %}
+{% load static %}
+    
+    {% block contenido %}
+    <div>
+        <div>
+                
+                    <form action="" method="POST"> {% csrf_token %}  
+                        <h1>El juego seleccionado se ha eliminado</h1>
+                        <br>
+                        <input type="submit"  style="background-color:red; border-color:red; font-size: 40px;" value= "OK"></input>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

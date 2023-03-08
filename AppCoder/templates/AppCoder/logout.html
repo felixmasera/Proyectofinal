@@ -1,0 +1,37 @@
+{% extends 'AppCoder/index.html' %}
+{% load static %}
+    
+    {% block contenido %}
+    <div class="contenido-cierre">
+
+        <div class="contenido">
+
+            <div> 
+
+               
+                <h1> Su sesion se ha cerrado.</h1>
+                <br>
+                <br>
+                
+                <a style="font-size: 30px;" href="{% url 'iniciosesion' %}">Iniciar sesion</a></li>
+            </div> 
+        </div>
+
+    </div>
+        
+    <style>
+        .contenido-cierre{
+            background-image: url(/media/juegos/game.png);
+            width: 100%;
+            height: 75vh;
+            background-repeat: no-repeat;
+            object-fit: cover;
+        }
+    .contenido{
+        text-align: right;
+        margin-right: 15rem;
+        padding-top: 10rem;
+       
+    }
+    </style>
+    {% endblock %}

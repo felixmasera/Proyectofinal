@@ -1,0 +1,64 @@
+{% extends 'AppCoder/index.html' %}
+{% load static %}
+
+{% block contenido %}
+    <div >
+
+        <div >
+
+            <div > 
+
+                {% if titulo %}
+
+                    <h1>Resultados de busqueda: </h1>
+
+                    <br>
+                    
+                    <strong>{{titulo|length}} resultado/s encontrado/s. </strong>
+                    <br>
+                    <br>
+                    {% for t in titulo %}
+                            
+                        <ul>
+
+                            <li> Titulo: {{t.titulo}} </li>
+                            <li> Descripcion: {{t.descripcion}} </li>
+                            <li> Genero: {{t.genero}} </li>
+                            <li>Caratula: {{t.caratula}}</li>
+
+                        </ul>
+
+
+                    {% endfor %}  
+                    <br>
+                    <br>
+
+               
+                {% else %} 
+
+                    <h1>Ups! Algo paso : </h1>
+                    <br>
+                    Ocurrio un error en tu busqueda, esto puede deberse a los siguientes motivos:
+                    <br>
+                    <br>
+                    <ul>
+
+                        <li><p>No ingreso el titulo correcto.</p></li>
+                        <li><p>El titulo no existe.</p></li>
+                        <li><p>No ingreso ningun caracter.</p></li>
+                        <li><p>El/los caracteres ingresados no son validos.</p></li>
+                        <br>
+                       
+                            <a  href="{%url 'inicio' %}">Volver a inicio</a>
+                        
+                {% endif %}
+
+            </div> 
+
+        </div>
+
+    </div>
+    {% if user.is_authenticated %}
+        <a href="{% url 'ListaGame' %}">Ver mas detalle de los Juegos</a>
+    {% endif %}    
+{% endblock %}

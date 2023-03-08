@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'AppCoder/assets/Python.png' %}" type="image/x-icon">
+    <link href="{% static 'AppCoder/CSS/styles.css' %}" rel="stylesheet" />
+    <title>{% block titulo %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="containerLogo">
+                <p class="logo"><a style="text-decoration: none; color: white; text-shadow: green 1px 1px 30px;" href="{% url 'inicio' %}">TU ZONA GAMER</a></p>
+            </div>
+            <div class="containerNav">
+                {% if user.is_authenticated %}
+            
+                    <a class="navbar hover" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+                    <a class="navbar hover" href="{% url 'ListaGame' %}">Game</a>
+                    <a class="navbar hover" href="{% url 'about' %}">Nosotros</a>
+                    <button class="boton-des">|||||</button>
+                    <div class="nav-b">
+                        <a class="navbar hover" aria-current="page" href="{% url 'inicio' %}">{{ user.username }}</a>
+                        <a class="navbar hover" href="{% url 'editarperfil' %}">Editar Perfil</a>
+                        <a class="navbar" href="{% url 'logout' %}"><span>cerrar sesion</span></a>
+                    </div>
+                
+
+                {% else %}
+               
+                <a class="navbar" href="{% url 'iniciosesion' %}"><span>Iniciar sesion</span></a>
+                <a class="navbar" href="{% url 'registro' %}"><span>registrarse</span></a>
+                {% endif %}
+                <!--<a class="navbar" href="{% url 'editarperfil' %}"><span>Editar Perfil</span></a>-->
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        {% block contenido %}
+
+        {% endblock %}
+    </main>
+
+    <footer>
+        <h2></h2>
+    </footer>
+
+    <style>
+        .boton-click{
+            transform: rotate(90deg);
+            font-size: 25px;
+            cursor: pointer;
+            background: none;
+            color: white;
+        }
+
+        .boton-des{
+            text-align: center;
+            font-size: 25px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background: black;
+            color: white;
+            box-shadow: rgb(13, 54, 0) 2px 2px 20px;
+            margin-right: 50px;
+            
+        }
+        .nav-b{
+            display: none;
+        }
+        .nav-des{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            background: rgb(41, 41, 41);
+            right: 0;
+            transform: translateY(24px);
+        }
+        .hover:hover{
+            color: gray !important;
+        }
+    </style>
+
+
+    <script>
+    //Script boton de hamburguesa
+    const navToggle = document.querySelector(".boton-des");
+    const navMenu = document.querySelector(".nav-b");
+
+    navToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("nav-des");
+    })
+
+    navToggle.addEventListener("click", () => {
+        navToggle.classList.toggle("boton-click")
+    })
+
+    </script>
+
+    <script src="{% static 'AppCoder/js/app.js' %}"></script>
+</body>
+</html>

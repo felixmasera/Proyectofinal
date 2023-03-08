@@ -1,0 +1,111 @@
+{% extends "AppCoder/index.html" %}
+{% load static %}
+{% block titulo %}
+REGISTRO
+{% endblock %}
+
+{% block contenido %}
+<div class="fondo-pantalla">
+    <h1 class="titulo-sesion">REGISTRAR USUARIO</h1>
+    <div class="formulario-busqueda">
+        <form action="" method="POST">
+            {% csrf_token %}
+           
+            <input type="text" placeholder="Nombre de Usuario" id="inputBuscador" autocomplete="off" name="username">
+            <input class="inputEmail" type="email" name="email" id="" placeholder="Email">
+            <input class="inputPassword" type="password" placeholder="Password" name="password1">
+            <input class="inputPassword" type="password" placeholder="Repetir Password" name="password2">
+            <input class="btn-inicio" type="submit" value="Registrar">
+
+        </form>
+    </div>
+
+</div>
+
+
+
+    <style>
+        .fondo-pantalla{
+            background-image: url(/media/juegos/csgo.jpg);
+            background-size: cover;
+            width: 100%;
+            height: 75vh;
+        }
+        .titulo-sesion{
+            text-align: center;
+            padding-top: 20px;
+            color: rgb(199, 199, 199);
+        }
+        .formulario-busqueda{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+        .formulario-busqueda form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .formulario-busqueda form #inputBuscador{
+            width: 400px;
+            height: 50px;
+            font-size: 25px;
+            border-radius: 10px;
+            padding-left: 15px;
+            background: #1a1a1a;
+            border: solid 2px rgb(33, 111, 57);
+            box-shadow: 2px 2px 10px 2px black;
+            color: white;
+            margin-top: 40px;
+        }
+        .inputPassword{
+            width: 400px;
+            height: 50px;
+            font-size: 25px;
+            border-radius: 10px;
+            padding-left: 15px;
+            background: #1a1a1a;
+            border: solid 2px rgb(33, 111, 57);
+            box-shadow: 2px 2px 10px 2px black;
+            color: white;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .inputEmail{
+            width: 400px;
+            height: 50px;
+            font-size: 25px;
+            border-radius: 10px;
+            padding-left: 15px;
+            background: #1a1a1a;
+            border: solid 2px rgb(33, 111, 57);
+            box-shadow: 2px 2px 10px 2px black;
+            color: white;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .btn-inicio{
+            width: 45%;
+            font-size: 20px;
+            border-radius: 10px;
+            background: #1a1a1a;
+            border: solid 2px rgb(33, 111, 57);
+            box-shadow: 2px 2px 10px 2px black;
+            color: rgb(165, 165, 165);
+            text-align: center;
+            margin-top: 20px;  
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-inicio:hover{
+            background: rgb(33, 111, 57);
+            color: white;
+            box-shadow: 2px 5px 10px 2px black;
+        }
+       
+    </style>
+
+    
+
+{% endblock %}

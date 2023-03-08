@@ -1,0 +1,45 @@
+{% extends 'AppCoder/index.html' %}
+{% load static %}
+
+{% block titulo %}
+RESULTADO REGISTRO
+{% endblock %}
+
+{% block contenido %}
+<div class="container-resultado">
+  <h1 class="tituloRegis">Se ha registrado con exito, gracias por unirse a nuestra comunidad!</h1>
+  <br>
+  <a href="{%url 'iniciosesion' %}">Iniciar sesion</a>
+</div>
+
+<style>
+    .container-resultado{
+        width: 100%;
+        height: 75vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .tituloRegis{
+        font-family: sans-serif;
+        color: green;
+        font-size: 40px;
+        text-shadow: black 5px 5px 10px ;
+    }
+    .container-resultado a{
+        text-decoration: none;
+        font-size: 30px;
+        font-family: sans-serif,Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        border: black solid 2px;
+        padding: 10px;
+        border-radius: 20px;
+        background:linear-gradient(rgb(33, 111, 57), black);
+        color: white;
+    }
+    .container-resultado a:hover{
+        background: rgb(115, 115, 115);
+    }
+</style>
+{% endblock %}

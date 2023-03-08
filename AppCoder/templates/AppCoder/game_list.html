@@ -1,0 +1,103 @@
+{% extends 'AppCoder/index.html' %}
+{% load static %}
+
+{% block contenido %}
+    <div class="contenido-fondo">
+
+       
+
+            <div class="container-post"> 
+                
+                {% for juego in object_list %}
+                <br>
+                    <div class="container-list">
+                        <div class="final-contenido">
+                            <h2 style="font-family: sans-serif; ">Titulo:   <strong>{{juego.titulo}}</strong></h2>
+                            <br>
+                            <img src="{{juego.caratula.url}}" alt="imagen" width="300" height="175" style="border-radius: 10px;">
+                            <br>
+                            <br>
+                            <li> Genero: {{juego.genero}} </li>
+                            <li> Tipo de juego: {{juego.tipo_de_juego}} </li>
+                            
+                        </div>
+                        <br>
+                        <br>
+                        <a class="botones-a"  style="background-color:black; border-color:black;" href="{% url 'DetalleGame' juego.id %}">Ver detalles</a>
+                        <a class="botones-a" style="background-color:green; border-color:green" href="{% url 'ActualizarGame' juego.id %}">Actualizar</a>
+                        <a class="botones-a" style="background-color:red; border-color:red" href="{% url 'EliminarGame' juego.id %}">Eliminar</a>
+                    </div>
+                  
+
+                    
+                {% endfor %}
+            </div> 
+                
+                    <div class="boton-agregar">
+                        <a  href="{% url 'CrearGame' %}">Agregar juego</a>
+                    </div>
+    </div>
+
+    <style>
+        .botones-a{
+            font-size: 15px;
+            font-family: sans-serif,Arial, Helvetica, sans-serif;
+            padding: 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            margin-left: 8px;
+        }
+        .container-post{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;  
+        }
+        .container-list{
+            margin: 40px;
+            border: solid black 1px;
+            height: 400px;
+            background: rgb(59, 59, 59);
+            color: white;
+            border-radius: 20px;
+            
+        }
+        .final-contenido{
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .boton-agregar{
+            width: 100%;
+            margin-top: 20px;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .boton-agregar a{
+            font-size: 20px;
+            font-family: sans-serif,Arial, Helvetica, sans-serif;
+            padding: 10px;
+            border-radius: 20px;
+            border: solid black 1px;
+            background: linear-gradient(green, black);
+            text-decoration: none;
+            color: white;
+            box-shadow: green 2px 2px 30px;
+        }
+        .boton-agregar a:hover{
+            background: rgb(175, 31, 31);
+        }
+        .contenido-fondo{
+            background-image: url("https://flex-arcade.fr/wp-content/uploads/2022/02/Retro-graming-Free-pik-2-scaled.jpg");
+            background-size: cover;
+            width: 100%;
+            min-height: 75vh;
+            margin-top: -30px;
+        }
+    </style>
+
+
+
+{% endblock %}
